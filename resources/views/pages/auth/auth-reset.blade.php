@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-        <title>Reset Password Adewa Backend</title>
+        <title>Reset Password Admin SPK C45</title>
 
         <!-- General CSS Files -->
         <link rel="stylesheet" href="{{ asset('library/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -24,16 +24,21 @@
         <div id="app">
             <section class="section">
                 <div class="d-flex align-items-stretch flex-wrap">
+                    <div class="col-lg-8 col-12 d-none d-md-block"
+                        style="background-repeat: no-repeat; background-size: cover"
+                        data-background="https://www.darmajaya.ac.id/wp-content/uploads/3-161.jpg">
+                    </div>
                     <div
-                        class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 d-flex justify-content-center align-items-center bg-white">
+                        class="col-lg-4 col-md-6 col-12  min-vh-100  d-flex justify-content-center align-items-center bg-white">
                         <div class="">
                             {{-- <img src="{{ asset('img/stisla-fill.svg') }}" alt="logo" width="80"
                                 class="shadow-light rounded-circle mb-5 mt-2"> --}}
-                            <h4 class="text-dark font-weight-normal">Reset Password <span class="font-weight-bold">Adewa
+                            <h4 class="text-dark font-weight-normal">Reset Password <span class="font-weight-bold">Admin
+                                    SPK C45
                                 </span>
                             </h4>
                             <p class="text-muted">
-                                Please fill password corectly.
+                                Mohon isi password dengan benar
                             </p>
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
@@ -74,7 +79,7 @@
 
                                 <div class="form-group">
                                     <div class="d-block">
-                                        <label for="password" class="control-label">New Password</label>
+                                        <label for="password" class="control-label">Password</label>
                                     </div>
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid
@@ -90,7 +95,7 @@
 
                                 <div class="form-group">
                                     <div class="d-block">
-                                        <label for="password" class="control-label">New Password Confirmation</label>
+                                        <label for="password" class="control-label">Konfirmsi Password</label>
                                     </div>
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid
@@ -111,30 +116,10 @@
 
                             </form>
 
-                            <div class="text-small mt-5 text-center">
-                                Copyright &copy; Adewa Lampung. Made with 💙 by Kalingga Padel Muhamad
-                                <div class="mt-2">
-                                    <a href="#">Privacy Policy</a>
-                                    <div class="bullet"></div>
-                                    <a href="#">Terms of Service</a>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
-                    <div class="col-lg-8 col-12 order-lg-2 min-vh-100 background-walk-y position-relative overlay-gradient-bottom order-1"
-                        data-background="https://images.unsplash.com/photo-1534443274343-c6200874852c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-                        <div class="absolute-bottom-left index-2">
-                            <div class="text-light p-5 pb-2">
-                                <div class="mb-5 pb-3">
-                                    {{-- <h1 class="display-4 font-weight-bold mb-2">Good {{ $timePeriod }}</h1> --}}
-                                    <h5 class="font-weight-normal text-muted-transparent">Lampung, Indonesia</h5>
-                                </div>
-                                Photo by <a class="text-light bb" target="_blank"
-                                    href="https://unsplash.com/photos/a8lTjWJJgLA">Bayu Anggoro</a> on <a
-                                    class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </section>
         </div>

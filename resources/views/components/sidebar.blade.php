@@ -12,9 +12,24 @@
                 <a href="{{ route('home') }}" class="nav-link ha"><i class="fas fa-home"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header">Master Data</li>
-            {{-- <li class="nav-item dropdown {{ $type_menu === 'users' ? 'active' : '' }}">
-                <a href="{{ route('user.index') }}" class="nav-link ha"><i
+            <li class="nav-item dropdown {{ $halaman === 'users' ? 'active' : '' }}">
+                <a href="{{ route('users.index') }}" class="nav-link ha"><i
                         class="fas fa-users"></i><span>Users</span></a>
+
+            </li>
+            <li class="nav-item dropdown {{ $halaman === 'dataset' ? 'active' : '' }}">
+                <a href="{{ route('dataset.index') }}" class="nav-link ha"><i
+                        class="fas fa-database"></i><span>Dataset</span></a>
+
+            </li>
+            {{-- <li class="nav-item dropdown {{ $halaman === 'users' ? 'active' : '' }}">
+                <a href="{{ route('users.index') }}" class="nav-link ha"><i
+                        class="fas fa-users"></i><span>Alternatif</span></a>
+
+            </li>
+            <li class="nav-item dropdown {{ $halaman === 'users' ? 'active' : '' }}">
+                <a href="{{ route('users.index') }}" class="nav-link ha"><i class="fas fa-users"></i><span>Penilaian
+                    </span></a>
 
             </li> --}}
             {{-- <li class="nav-item dropdown {{ $type_menu === 'tempat' ? 'active' : '' }}">
