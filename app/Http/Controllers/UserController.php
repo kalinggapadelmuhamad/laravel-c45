@@ -49,7 +49,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return Redirect::route('users.index')->with('success', 'User berhasil di tambah');
+        return Redirect::route('users.index')->with('success', 'User berhasil di tambah.');
     }
 
     /**
@@ -74,7 +74,7 @@ class UserController extends Controller
             'name' => $request->name
         ]);
 
-        return Redirect::route('users.index')->with('success', 'User berhasil di ubah');
+        return Redirect::route('users.index')->with('success', 'User berhasil di ubah.');
     }
 
     /**
@@ -83,6 +83,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return Redirect::route('users.index')->with('success', 'User berhasil di hapus');
+        return Redirect::route('users.index')->with('success', 'User berhasil di hapus.');
     }
 }

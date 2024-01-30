@@ -22,6 +22,26 @@
                         class="fas fa-database"></i><span>Dataset</span></a>
 
             </li>
+            <li class="nav-item dropdown {{ $halaman === 'tree' ? 'active' : '' }}">
+                <a href="{{ route('tree.index') }}" class="nav-link ha"><i class="fas fa-tree"></i><span>Pohon
+                        Keputusan</span></a>
+
+            </li>
+            <li class="nav-item dropdown {{ $halaman === 'tree' ? 'active' : '' }}">
+                <a href="{{ route('tree.index') }}" class="nav-link ha"><i
+                        class="fas fa-list"></i><span>Peserta</span></a>
+
+            </li>
+            <li class="nav-item dropdown {{ $halaman === 'tree' ? 'active' : '' }}">
+                <a href="{{ route('tree.index') }}" class="nav-link ha"><i
+                        class="fas fa-list-check"></i><span>Penilaian</span></a>
+
+            </li>
+            <li class="nav-item dropdown {{ $halaman === 'tree' ? 'active' : '' }}">
+                <a href="{{ route('tree.index') }}" class="nav-link ha"><i
+                        class="fas fa-file"></i><span>Hasil</span></a>
+
+            </li>
             {{-- <li class="nav-item dropdown {{ $halaman === 'users' ? 'active' : '' }}">
                 <a href="{{ route('users.index') }}" class="nav-link ha"><i
                         class="fas fa-users"></i><span>Alternatif</span></a>

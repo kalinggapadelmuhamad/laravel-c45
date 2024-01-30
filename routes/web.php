@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataSetController;
+use App\Http\Controllers\PohonKeputusanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use PhpOffice\PhpSpreadsheet\Worksheet\Row;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +22,13 @@ use Illuminate\Support\Facades\Route;
 
 // Route::redirect('/', 'login');
 
-Route::get('/', function () {
-    $c45 = new Algorithm\C45();
-    $input = new Algorithm\C45\DataInput;
-});
+Route::get('/', [BerandaController::class, 'index']);
+Route::get('/daftar', [BerandaController::class, 'create'])->name('beranda.daftar');
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::resource('profile', ProfileController::class);
     Route::resource('users', UserController::class);
     Route::resource('dataset', DataSetController::class);
+    Route::resource('tree', PohonKeputusanController::class);
 });

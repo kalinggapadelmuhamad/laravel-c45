@@ -74,7 +74,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="form-group col-md-4 mb-3">
+                                        <div class="form-group col-md-2 mb-3">
                                             <label for="name" class="form-label">Penghasilan Ayah</label>
                                             <select name="penghasilan_ayah" id="" class="form-control">
                                                 @foreach ($pilihans as $pilihan)
@@ -83,7 +83,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-md-4 mb-3">
+                                        <div class="form-group col-md-2 mb-3">
                                             <label for="name" class="form-label">Jumlah Tanggungan</label>
                                             <select name="jumlah_tanggungan" id="" class="form-control">
                                                 @foreach ($pilihans as $pilihan)
@@ -92,9 +92,27 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-md-4 mb-3">
+                                        <div class="form-group col-md-2 mb-3">
                                             <label for="name" class="form-label">Penghasilan Ibu</label>
                                             <select name="penghasilan_ibu" id="" class="form-control">
+                                                @foreach ($pilihans as $pilihan)
+                                                    <option value="{{ $pilihan }}">{{ $pilihan }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-3 mb-3">
+                                            <label for="name" class="form-label">Kepemilikan Rumahh</label>
+                                            <select name="kepemilikan_rumah" id="" class="form-control">
+                                                @foreach ($pilihans as $pilihan)
+                                                    <option value="{{ $pilihan }}">{{ $pilihan }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-3 mb-3">
+                                            <label for="name" class="form-label">Daya Listrik</label>
+                                            <select name="daya_listrik" id="" class="form-control">
                                                 @foreach ($pilihans as $pilihan)
                                                     <option value="{{ $pilihan }}">{{ $pilihan }}</option>
                                                 @endforeach
@@ -103,27 +121,37 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="form-group col-md-4 mb-3">
-                                            <label for="name" class="form-label">Penghasilan Ayah</label>
-                                            <select name="penghasilan_ayah" id="" class="form-control">
+
+                                        <div class="form-group col-md-3 mb-3">
+                                            <label for="name" class="form-label">Bahan Atap</label>
+                                            <select name="bahan_atap" id="" class="form-control">
                                                 @foreach ($pilihans as $pilihan)
                                                     <option value="{{ $pilihan }}">{{ $pilihan }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-md-4 mb-3">
-                                            <label for="name" class="form-label">Jumlah Tanggungan</label>
-                                            <select name="jumlah_tanggungan" id="" class="form-control">
+                                        <div class="form-group col-md-3 mb-3">
+                                            <label for="name" class="form-label">Bahan Lantai</label>
+                                            <select name="bahan_lantai" id="" class="form-control">
                                                 @foreach ($pilihans as $pilihan)
                                                     <option value="{{ $pilihan }}">{{ $pilihan }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-md-4 mb-3">
-                                            <label for="name" class="form-label">Penghasilan Ibu</label>
-                                            <select name="penghasilan_ibu" id="" class="form-control">
+                                        <div class="form-group col-md-3 mb-3">
+                                            <label for="name" class="form-label">Bahan Tembok</label>
+                                            <select name="bahan_tembok" id="" class="form-control">
+                                                @foreach ($pilihans as $pilihan)
+                                                    <option value="{{ $pilihan }}">{{ $pilihan }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-3 mb-3">
+                                            <label for="name" class="form-label">Sumber Air</label>
+                                            <select name="sumber_air_utama" id="" class="form-control">
                                                 @foreach ($pilihans as $pilihan)
                                                     <option value="{{ $pilihan }}">{{ $pilihan }}</option>
                                                 @endforeach
@@ -131,39 +159,45 @@
                                         </div>
                                     </div>
 
+                                    <div class="row">
 
-
-                                    {{-- <div class="row">
-                                        <div class="form-group col-md-6 mb-3">
-                                            <label for="password" class="form-label">Password</label>
-                                            <input type="password"
-                                                class="form-control @error('password') is-invalid
-
-                                                    @enderror"
-                                                id="password" name="password" required>
-                                            @error('password')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                        <div class="form-group col-md-4 mb-3">
+                                            <label for="name" class="form-label">Luas Tanah</label>
+                                            <select name="luas_tanah" id="" class="form-control">
+                                                @foreach ($pilihans as $pilihan)
+                                                    <option value="{{ $pilihan }}">{{ $pilihan }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                        <div class="form-group col-md-6 mb-3">
-                                            <label for="password_confirmation" class="form-label">Konfirmasi
-                                                Password</label>
-                                            <input type="password"
-                                                class="form-control @error('password') is-invalid
-                                                    @enderror"
-                                                name="password_confirmation" id="password_confirmation" required>
-                                            @error('password_confirmation')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+
+                                        <div class="form-group col-md-4 mb-3">
+                                            <label for="name" class="form-label">Luas Bangunan</label>
+                                            <select name="luas_bangunan" id="" class="form-control">
+                                                @foreach ($pilihans as $pilihan)
+                                                    <option value="{{ $pilihan }}">{{ $pilihan }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
+
+                                        <div class="form-group col-md-4 mb-3">
+                                            <label for="name" class="form-label">Keputusan</label>
+                                            <select name="keputusan" id="" class="form-control">
+                                                @foreach ($pilihanKeputusans as $pilihanKeputusan)
+                                                    <option value="{{ $pilihanKeputusan }}">{{ $pilihanKeputusan }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row">
                                         <div class="form-group col-12">
                                             <button class="btn btn-primary mt-2">Simpan</button>
                                         </div>
-                                    </div> --}}
+                                    </div>
 
                                 </div>
                             </div>

@@ -18,22 +18,6 @@ class ProfileController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, User $profile)
@@ -47,13 +31,5 @@ class ProfileController extends Controller
         ]);
 
         return Redirect::route('profile.index')->with('success', 'Profile berhasil di ubah.');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
