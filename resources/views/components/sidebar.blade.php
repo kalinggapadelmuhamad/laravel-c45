@@ -27,18 +27,18 @@
                         Keputusan</span></a>
 
             </li>
-            <li class="nav-item dropdown {{ $halaman === 'tree' ? 'active' : '' }}">
-                <a href="{{ route('tree.index') }}" class="nav-link ha"><i
-                        class="fas fa-list"></i><span>Peserta</span></a>
+            <li class="nav-item dropdown {{ $halaman === 'alternatif' ? 'active' : '' }}">
+                <a href="{{ route('alternatif.index') }}" class="nav-link ha"><i
+                        class="fas fa-list"></i><span>Alternatif</span></a>
 
             </li>
-            <li class="nav-item dropdown {{ $halaman === 'tree' ? 'active' : '' }}">
-                <a href="{{ route('tree.index') }}" class="nav-link ha"><i
+            <li class="nav-item dropdown {{ $halaman === 'penilaian' ? 'active' : '' }}">
+                <a href="{{ route('penilaian.index') }}" class="nav-link ha"><i
                         class="fas fa-list-check"></i><span>Penilaian</span></a>
 
             </li>
-            <li class="nav-item dropdown {{ $halaman === 'tree' ? 'active' : '' }}">
-                <a href="{{ route('tree.index') }}" class="nav-link ha"><i
+            <li class="nav-item dropdown {{ $halaman === 'hasil' ? 'active' : '' }}">
+                <a href="{{ route('hasil.index') }}" class="nav-link ha"><i
                         class="fas fa-file"></i><span>Hasil</span></a>
 
             </li>

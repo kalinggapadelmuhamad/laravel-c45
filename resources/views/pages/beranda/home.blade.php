@@ -42,7 +42,7 @@
                 <div class="text-slogan text-center">
                     <h3>Sistem Penerimaan Beasiswa KIP Kuliah IIB Darmajaya</h3>
                     <h1>#The Best</h1>
-                    <a href="{{ route('beranda.daftar') }}" class="btn btn-primary">Daftar</a>
+                    <a href="{{ route('beranda.create') }}" class="btn btn-primary">Daftar</a>
                 </div>
             </div>
         </div>

@@ -4,21 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Redirect;
 
-class BerandaController extends Controller
+class AlternatifController extends Controller
 {
-    // fungsi untuk menampilkan halaman utama / beranda
-    public function index()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(Request $request)
     {
-        // arahkan ke file pages/beranda/home.blade.php
-        return view('pages.beranda.home');
+        $halaman = 'alternatif';
+
+        $keyword = $request->input('name');
+        $alternatifs = Alternatif::when($request->name, function ($query, $name) {
+            $query->where('nama_siswa', 'like', '%' . $name . '%');
+        })->latest()->paginate(10);
+
+        // masukn key name kedalam array users
+        $alternatifs->appends(['name' => $keyword]);
+
+        // arahkan ke file pages/users/index.blade.php
+        return view('pages.alternatif.index', compact('halaman', 'alternatifs'));
     }
 
-    // fungsi untuk menampilkan halaman daftar user
-    public function create()
+    /**
+     * Display the specified resource.
+     */
+    public function show(Alternatif $alternatif)
     {
+        $halaman = 'alternatif';
+
         // data pilihan tahun lulus
         $tahunluluss = [
             date('Y', strtotime('-1 year')),
@@ -41,17 +56,16 @@ class BerandaController extends Controller
             'S1 Pendidikan Teknologi Informasi [83207]',
             'S1 Sains Data [49202]'
         ];
-
-        // arahkan ke file pages/beranda/create.blade.php
-        return view('pages.beranda.create', compact(
-            'tahunluluss',
-            'jurusanpendaftarans'
-        ));
+        return view('pages.alternatif.edit', compact('halaman', 'alternatif', 'jurusanpendaftarans', 'tahunluluss'));
     }
 
-    // fungsi untuk memasukan data pendaftaran ke database
-    public function store(Request $request)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Alternatif $alternatif)
     {
+        $berkas = $request->file('berkas_Pendaftaran');
+
         // validasi data dari form daftar
         $request->validate([
             'asal_sekolah' => 'required|string|max:255',
@@ -89,16 +103,12 @@ class BerandaController extends Controller
             'bahan_tembok' => 'required|string|max:255',
             'kamar_mandi' => 'required|string|max:255',
             'sumber_air_utama' => 'required|string|max:255',
-            'berkas_Pendaftaran' => 'required|file|mimes:pdf,doc,docx',
+            'berkas_Pendaftaran' => 'file|mimes:pdf,doc,docx',
         ]);
 
-        // masukan berkas pendaftaran kedalam folder public/berkas
-        $berkas = $request->file('berkas_Pendaftaran');
-        $path = time() . '.' . $berkas->getClientOriginalExtension();
-        $berkas->move('berkas/', $path);
 
-        // proses input data ke tabel alternatif
-        Alternatif::create([
+        // proses update data ke tabel alternatif
+        $alternatif->update([
             'asal_sekolah' => $request->asal_sekolah,
             'tahun_lulus' => $request->tahun_lulus,
             'jenis_beasiswa' => 'KIP Kuliah',
@@ -137,12 +147,30 @@ class BerandaController extends Controller
             'bahan_lantai' => $request->bahan_lantai,
             'bahan_tembok' => $request->bahan_tembok,
             'kamar_mandi' => $request->kamar_mandi,
-            'sumber_air_utama' => $request->sumber_air_utama,
+            'sumber_air_utama' => $request->sumber_air_utama
 
-            'berkas_Pendaftaran' => $path,
         ]);
 
-        // jika proses berhasil arahkan kembali ke halaman pendaftaran dengan status success
-        return Redirect::route('beranda.create')->with('success', 'Pendaftaran kamu berhasil pengumuman akan di umumkan pada akun instagram @beasiswadarmajaya.');
+        if ($berkas) {
+            $path = time() . '.' . $berkas->getClientOriginalExtension();
+            $berkas->move('berkas/', $path);
+
+            $alternatif->update([
+                'berkas_Pendaftaran' => $path,
+            ]);
+        }
+
+
+
+        return Redirect::route('alternatif.index')->with('success', 'Alternatif Berhasil Di Ubah.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Alternatif $alternatif)
+    {
+        $alternatif->delete();
+        return Redirect::route('alternatif.index')->with('success', 'Alternatif Berhasil Di Hapus.');
     }
 }

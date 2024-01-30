@@ -5,39 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alternatif extends Model
+class Penilaian extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'asal_sekolah',
-        'tahun_lulus',
-        'jenis_beasiswa',
-        'jurusaan_pendaftaran',
-
-        'nama_siswa',
-        'nisn',
-        'no_telp',
-        'tgl_lahir',
-        'agama',
-        'alamat',
-        'jurusan_sekolah',
+        'alternatif_id',
         'rangking_semester_4',
         'rangking_semester_5',
         'rangking_semester_6',
         'nilai_un',
         'prestasi',
 
-        'nama_ayah',
-        'status_ayah',
-        'hubunga_ayah',
-        'pekerjan_ayah',
         'penghasilan_ayah',
         'jumlah_tanggungan',
-        'no_hp',
-        'nama_ibu',
-        'status_ibu',
-        'pekerjan_ibu',
         'penghasilan_ibu',
 
         'kepemilikan_rumah',
@@ -47,14 +28,12 @@ class Alternatif extends Model
         'bahan_atap',
         'bahan_lantai',
         'bahan_tembok',
-        'kamar_mandi',
         'sumber_air_utama',
-
-        'berkas_Pendaftaran',
+        'hasil_keputusan',
     ];
 
-    public function penilaian()
+    public function alternatif()
     {
-        return $this->hasMany(Penilaian::class);
+        return $this->belongsTo(Alternatif::class);
     }
 }
